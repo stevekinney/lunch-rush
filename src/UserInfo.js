@@ -8,6 +8,7 @@ const UserInfo = ({ user }) => {
         className="UserInfo--photo"
         src={ user.photoURL }
         alt={ user.displayName }
+        style={{ maxWidth: 100 }}
       />
       <div className="UserInfo--identification">
         <h3 className="UserInfo--displayName">{ user.displayName }</h3>

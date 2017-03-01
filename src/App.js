@@ -2,15 +2,14 @@ import React, { Component } from 'react';
 import { auth, database } from './firebase';
 import UserInfo from './UserInfo';
 import SignIn from './SignIn';
-import NewLunchOption from './NewLunchOption';
-import LunchOption from './LunchOption';
-import map from 'lodash/map';
+import NewRestaurant from './NewRestaurant';
+import Restaurants from './Restaurants';
 import './App.css';
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.lunchOptionsRef = null;
+    this.restaurantsRef = null;
     this.state = {
       user: null
     };
@@ -19,15 +18,15 @@ class App extends Component {
   componentWillMount() {
     auth.onAuthStateChanged((user) => {
       this.setState({ user });
-      this.lunchOptionsRef = database.ref('lunch-options');
-      this.lunchOptionsRef.on('value', snapshot => {
-        this.setState({ lunchOptions: snapshot.val() });
+      this.restaurantsRef = database.ref('lunch-options');
+      this.restaurantsRef.on('value', snapshot => {
+        this.setState({ restaurants: snapshot.val() });
       });
     });
   }
 
   render() {
-    const { user, lunchOptions } = this.state;
+    const { user, restaurants } = this.state;
 
     return (
       <div className="App">
@@ -36,15 +35,13 @@ class App extends Component {
         </div>
         { user
           ? <div>
-              <NewLunchOption
-                lunchOptionsRef={this.lunchOptionsRef}
+              <NewRestaurant
+                restaurantsRef={this.restaurantsRef}
               />
-              <div>
-                {
-                  lunchOptions &&
-                  map(lunchOptions, (option, key) => <LunchOption key={key} {...option} onUpVote={() => this.lunchOptionsRef.child(key).child('votes').child(user.uid).set(user.displayName)} onDownVote={() => this.lunchOptionsRef.child(key).child('votes').child(user.uid).remove()}/>)
-                }
-              </div>
+              {
+                restaurants &&
+                <Restaurants restaurants={restaurants} user={user} restaurantsRef={this.restaurantsRef}/>
+              }
               <UserInfo user={user} />
             </div>
           : <SignIn />

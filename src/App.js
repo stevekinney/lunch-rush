@@ -29,9 +29,9 @@ class App extends Component {
 
     return (
       <div className="App">
-        <div className="App--header">
-          <h2>Ask the Audience</h2>
-        </div>
+        <header className="App--header">
+          <h1>Ask the Audience</h1>
+        </header>
         { user
           ? <div>
               <NewRestaurant

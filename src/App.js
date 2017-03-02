@@ -4,7 +4,6 @@ import UserInfo from './UserInfo';
 import SignIn from './SignIn';
 import NewRestaurant from './NewRestaurant';
 import Restaurants from './Restaurants';
-import './App.css';
 
 class App extends Component {
   constructor(props) {
@@ -30,7 +29,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <div className="App-header">
+        <div className="App--header">
           <h2>Ask the Audience</h2>
         </div>
         { user

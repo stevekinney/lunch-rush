@@ -12,6 +12,9 @@ export default class NewRestaurant extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
+
+    if (!this.state.name) return false;
+
     this.props.restaurantsRef.push({ name: this.state.name });
     this.setState({ name: '' });
   }
@@ -21,8 +24,7 @@ export default class NewRestaurant extends Component {
 
     return (
       <form
-        className="Restaurant"
-        style={{ padding: 25, margin: 25 }}
+        className="NewRestaurant"
       >
         <input
           type="text"
@@ -30,7 +32,12 @@ export default class NewRestaurant extends Component {
           placeholder="Name of Fine Establishment"
           onChange={(event) => this.setState({ name: event.target.value })}
         />
-        <button onClick={this.handleSubmit}>Submit</button>
+        <button
+          onClick={this.handleSubmit}
+          disabled={!name}
+        >
+          Submit
+        </button>
       </form>
     );
   }

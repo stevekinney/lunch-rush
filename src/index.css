@@ -1,5 +1,54 @@
+html, body {
+  box-sizing: border-box;
+}
+
+body, input {
+  font: menu;
+}
+
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+}
+
+.App {
+  max-width: 600px;
+  margin: auto;
+}
+
+.App--header {
+  text-align: center;
+}
+
+.NewRestaurant {
+  display: flex;
+}
+
+.NewRestaurant input {
+  width: 100%;
+}
+
+.Restaurants {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 1em 0;
+}
+
+.Restaurant {
+  padding: 1em;
+  margin: 1em;
+  border: 1px solid #CCC;
+}
+
+.UserInfo {
+  display: flex;
+  background-color: #EEE;
+  border: 1px solid #AAA;
+}
+
+.UserInfo--photo {
+  max-width: 100px;
+  max-height: 100px;
+  margin-right: 1em;
 }

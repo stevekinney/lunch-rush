@@ -1,19 +1,20 @@
 import React, { PropTypes } from 'react';
 import { auth } from './firebase';
+import './CurrentUser.css';
 
-const UserInfo = ({ user }) => {
+const CurrentUser = ({ user }) => {
   return (
-    <div className="UserInfo">
+    <div className="CurrentUser">
       <img
-        className="UserInfo--photo"
+        className="CurrentUser--photo"
         src={ user.photoURL }
         alt={ user.displayName }
       />
-      <div className="UserInfo--identification">
-        <h3 className="UserInfo--displayName">{ user.displayName }</h3>
-        <p className="UserInfo--email">{ user.email }</p>
+      <div className="CurrentUser--identification">
+        <h3 className="CurrentUser--displayName">{ user.displayName }</h3>
+        <p className="CurrentUser--email">{ user.email }</p>
         <button
-          className="UserInfo--signout"
+          className="CurrentUser--signout"
           onClick={() => auth.signOut()}
         >
           Sign Out
@@ -23,7 +24,7 @@ const UserInfo = ({ user }) => {
   );
 };
 
-UserInfo.propTypes = {
+CurrentUser.propTypes = {
   user: PropTypes.shape({
     displayName: PropTypes.string,
     email: PropTypes.string.isRequired,
@@ -32,4 +33,4 @@ UserInfo.propTypes = {
   })
 };
 
-export default UserInfo;
+export default CurrentUser;

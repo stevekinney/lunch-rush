@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import map from 'lodash/map';
+import './Restaurant.css';
 
 class Restaurant extends Component {
   render () {
@@ -8,7 +9,7 @@ class Restaurant extends Component {
 
     return (
       <article className="Restaurant">
-        <h3 className="Restauarant--name">{ name }</h3>
+        <h2 className="Restaurant--name">{ name }</h2>
         <p className="Restaurant--count">
           Total Votes: {(votes && Object.keys(votes).length) || 0}
         </p>
@@ -17,12 +18,20 @@ class Restaurant extends Component {
         </ul>
         {
           userHasSelected
-          ? <button onClick={handleDeselect}>Actually, no</button>
-          : <button onClick={handleSelect}>I'd go here</button>
+          ? <button onClick={handleDeselect} className="block destructive">Actually, no</button>
+          : <button onClick={handleSelect} className="block">I'd go here</button>
         }
       </article>
     );
   }
 }
+
+Restaurant.propTypes = {
+  name: PropTypes.string.isRequired,
+  votes: PropTypes.array,
+  user: PropTypes.object,
+  handleSelect: PropTypes.func.isRequired,
+  handleDeselect: PropTypes.func.isRequired
+};
 
 export default Restaurant;

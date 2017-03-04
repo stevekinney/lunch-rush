@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { auth, database } from './firebase';
-import UserInfo from './UserInfo';
+import CurrentUser from './CurrentUser';
 import SignIn from './SignIn';
 import NewRestaurant from './NewRestaurant';
 import Restaurants from './Restaurants';
+import './Application.css';
 
-class App extends Component {
+class Application extends Component {
   constructor(props) {
     super(props);
     this.restaurantsRef = null;
@@ -17,7 +18,7 @@ class App extends Component {
   componentWillMount() {
     auth.onAuthStateChanged((user) => {
       this.setState({ user });
-      this.restaurantsRef = database.ref('lunch-options');
+      this.restaurantsRef = database.ref('restaurants');
       this.restaurantsRef.on('value', snapshot => {
         this.setState({ restaurants: snapshot.val() });
       });
@@ -28,8 +29,8 @@ class App extends Component {
     const { user, restaurants } = this.state;
 
     return (
-      <div className="App">
-        <header className="App--header">
+      <div className="Application">
+        <header className="Application--header">
           <h1>Ask the Audience</h1>
         </header>
         { user
@@ -41,7 +42,7 @@ class App extends Component {
                 restaurants &&
                 <Restaurants restaurants={restaurants} user={user} restaurantsRef={this.restaurantsRef}/>
               }
-              <UserInfo user={user} />
+              <CurrentUser user={user} />
             </div>
           : <SignIn />
         }
@@ -50,4 +51,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Application;

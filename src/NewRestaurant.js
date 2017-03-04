@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
+import './NewRestaurant.css';
 
-export default class NewRestaurant extends Component {
+class NewRestaurant extends Component {
   constructor() {
     super();
     this.state = {
@@ -42,3 +43,9 @@ export default class NewRestaurant extends Component {
     );
   }
 }
+
+NewRestaurant.propTypes = {
+  restaurantsRef: PropTypes.object
+};
+
+export default NewRestaurant;

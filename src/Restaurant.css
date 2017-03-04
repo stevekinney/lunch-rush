@@ -1,0 +1,15 @@
+.Restaurant {
+  margin: 1em;
+  min-width: 200px;
+  text-align: center;
+  border: 1px solid #eee;
+  padding: 1em;
+}
+
+.Restaurant--name {
+  margin-top: 0;
+}
+
+.Restaurant--votes {
+  text-align: left;
+}

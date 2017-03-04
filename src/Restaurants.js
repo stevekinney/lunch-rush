@@ -51,7 +51,7 @@ class Restaurants extends Component {
 Restaurants.propTypes = {
   user: PropTypes.object.isRequired,
   restaurantsRef: PropTypes.object.isRequired,
-  restaurants: PropTypes.array
+  restaurants: PropTypes.object
 };
 
 export default Restaurants;

@@ -13,11 +13,6 @@ class NewRestaurant extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-
-    if (!this.state.name) return false;
-
-    this.props.restaurantsRef.push({ name: this.state.name });
-    this.setState({ name: '' });
   }
 
   render() {

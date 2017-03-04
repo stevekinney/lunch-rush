@@ -31,7 +31,7 @@ class Application extends Component {
     return (
       <div className="Application">
         <header className="Application--header">
-          <h1>Ask the Audience</h1>
+          <h1>Lunch Rush</h1>
         </header>
         { user
           ? <div>

@@ -28,7 +28,7 @@ class Restaurant extends Component {
 
 Restaurant.propTypes = {
   name: PropTypes.string.isRequired,
-  votes: PropTypes.array,
+  votes: PropTypes.object,
   user: PropTypes.object,
   handleSelect: PropTypes.func.isRequired,
   handleDeselect: PropTypes.func.isRequired

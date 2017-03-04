@@ -1,8 +1,9 @@
 import React, { PropTypes } from 'react';
 import { auth } from './firebase';
+import map from 'lodash/map';
 import './CurrentUser.css';
 
-const CurrentUser = ({ user }) => {
+const CurrentUser = ({ user, userRestaurants }) => {
   return (
     <div className="CurrentUser">
       <img
@@ -13,6 +14,12 @@ const CurrentUser = ({ user }) => {
       <div className="CurrentUser--identification">
         <h3 className="CurrentUser--displayName">{ user.displayName }</h3>
         <p className="CurrentUser--email">{ user.email }</p>
+        {
+          userRestaurants &&
+          <ul>
+            {map(userRestaurants, (resturants) => <li>{resturants}</li>)}
+          </ul>
+        }
         <button
           className="CurrentUser--signout"
           onClick={() => auth.signOut()}

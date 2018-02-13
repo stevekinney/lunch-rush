@@ -8,9 +8,27 @@ class Restaurants extends Component {
     super(props);
   }
 
+  handleSelect(key) {
+
+  }
+
+  handleDeselect(key) {
+
+  }
+
   render () {
+    const { restaurants } = this.props;
+
     return (
       <section className="Restaurants">
+      {
+        map(restaurants, (restaurant, key) => {
+          return <Restaurant
+                  key={key}
+                  {...restaurant}
+                  />;
+        }) 
+      }
       </section>
     );
   }

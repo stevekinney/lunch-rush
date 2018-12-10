@@ -1,6 +1,6 @@
 ## Course
 
-This project was built to teach the [Firebase + React: Real-time, Serverless Web Apps Course](https://frontendmasters.com/courses/firebase-react/).
+This project was built to teach the [Firebase + React: Real-time, Serverless Web Apps Course](https://frontendmasters.com/courses/firebase-react/) for Frontend Masters.
 
 ## Code
 

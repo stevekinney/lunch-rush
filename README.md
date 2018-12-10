@@ -1,3 +1,9 @@
+## Course
+
+This project was built to teach the [Firebase + React: Real-time, Serverless Web Apps Course](https://frontendmasters.com/courses/firebase-react/).
+
+## Code
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
